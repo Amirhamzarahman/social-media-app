@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+ <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  <div class="min-h-screen bg-gradient-to-br from-slate-100 via-white to-sky-100 flex items-center justify-center p-6">
+    <form enctype="multipart/form-data" autocomplete="off" method="post" action="/upload" class="w-full max-w-md bg-white/80 backdrop-blur-md shadow-2xl rounded-2xl p-8 border border-slate-200">
+      <div class="mb-8 text-center">
+        <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-100 text-2xl text-sky-600">↑</div>
+        <h1 class="text-3xl font-bold tracking-tight text-slate-800">Upload File</h1>
+        <p class="mt-2 text-sm text-slate-500">Choose an image to upload</p>
+      </div>
+
+      <label for="image" class="block cursor-pointer rounded-xl border-2 border-dashed border-slate-300 bg-slate-50 px-6 py-8 text-center transition hover:border-sky-400 hover:bg-sky-50">
+        <span class="block text-sm font-medium text-slate-700">Select an image</span>
+        <span id="file-name" class="mt-1 block text-xs text-slate-500">PNG, JPG, or JPEG</span>
+        <input id="image" type="file" name="image" accept="image/*" class="sr-only" onchange="document.getElementById('file-name').textContent = this.files[0]?.name || 'PNG, JPG, or JPEG'">
+      </label>
+
+      <button type="submit" class="mt-6 w-full rounded-xl bg-sky-600 px-4 py-3 font-semibold text-white shadow-lg shadow-sky-200 transition duration-200 hover:bg-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-200">
+        Upload file
+      </button>
+    </form>
+  </div>
+  
+</body>
+</html>

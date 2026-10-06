@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  <div class="min-h-screen bg-slate-100 px-4 py-8 text-slate-900 sm:px-6">
+    <main class="mx-auto max-w-2xl">
+      <header class="mb-8 flex items-center justify-between">
+        <div class="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full bg-slate-200 ring-2 ring-white shadow-sm">
+          <img class="h-full w-full object-cover" src="/images/uploads/<%= user.profilePic %>" alt="<%= user.userName %>'s profile picture">
+        </div> 
+        <h1 class="text-2xl font-bold">Hello, <%= user.userName %></h1>
+        <a class="rounded-lg bg-red-500 px-4 py-2 text-sm font-semibold text-white hover:bg-red-600"  href="/logout">Logout</a>
+      </header>
+
+      <section class="mb-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+        <h3 class="mb-4 text-lg font-semibold">Create a new post</h3>
+        <form action="/post" method="post" class="space-y-4">
+          <textarea name="postText" id="" rows="4" placeholder="What's on your mind?" class="w-full resize-none rounded-xl border border-slate-300 p-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"></textarea>
+          <input class="cursor-pointer rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700" value="Submit" type="submit">
+        </form>
+      </section>
+
+      <h3 class="mb-4 text-lg font-semibold">Your posts</h3>
+      <div class="space-y-4">
+        <% post.reverse().forEach((post)=> { %>
+          <div class="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+          <h4 class="mb-2 font-semibold text-blue-600"><%= post.user.userName %></h4>
+          <p class="leading-6 text-slate-600"><%= post.postText %></p>
+          <div class="mt-4 flex gap-4 text-sm font-medium">
+            <small><%= post.Likes.length %> Like</small>
+            <a class="text-slate-500 hover:text-blue-600" href="/like/<%= post._id %>"> <%=  post.Likes.indexOf(user._id) === -1 ? "Like" : "Unlike"   %></a>
+              <% if(post.user._id.equals(user._id)) { %>
+              <a class="text-slate-500 hover:text-blue-600" href="/edit/<%= post._id %>">Edit</a>
+              <% } %>
+          </div>
+        </div>
+        <% })  %>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

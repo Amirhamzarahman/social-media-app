@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+
+  <div class="flex min-h-screen items-center justify-center bg-slate-100 px-4">
+  <form method="post" action="/login" class="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl">
+    <h1 class="mb-6 text-center text-3xl font-bold text-slate-800">Login</h1>
+    <div class="space-y-4">
+      <input type="text" placeholder="Email" name="email" class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200">
+      <input type="password" placeholder="Password" name="password" class="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200">
+      <div class="flex items-center justify-center gap-1 text-sm text-slate-600">
+        <span>New user?</span>
+        <a href="/" class="font-semibold text-indigo-600 transition-colors hover:text-indigo-800 hover:underline focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">Create account</a>
+      </div>
+      <button value="Login" type="submit" class="w-full rounded-lg bg-indigo-600 px-4 py-3 font-semibold text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">Log in</button>
+    </div>
+  </form>
+  </div>
+  
+</body>
+</html>
